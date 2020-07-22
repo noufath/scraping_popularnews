@@ -17,9 +17,14 @@ def detik_popular():
     popular_titles = popular_area.findAll(attrs={'class': 'media__title'})
     popular_images = popular_area.find_all(attrs={'class': 'media__image'})
 
-    return render_template('index.html', images=popular_images)
+    return render_template('detik_popular.html', images=popular_images)
 
+@app.route('/idr_rate')
+def idr_rate():
+    dt_src = GetData("http://www.floatrates.com/daily/idr.json","").doc_req()
+    json_data = dt_src.json()
 
+    return render_template('idr_rate.html', json_datas = json_data.values())
 
 
 if __name__ == '__main__':

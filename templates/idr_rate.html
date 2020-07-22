@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dtjson in json_datas %}
+    <tr>
+        <td>{{ dtjson['code'] }}</td>
+        <td>{{ dtjson['name'] }}</td>
+        <td>{{ dtjson['date'] }}</td>
+        <td>{{ dtjson['inverseRate'] }}</td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
